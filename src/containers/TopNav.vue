@@ -13,28 +13,29 @@
                 <i class="simple-icon-magnifier"></i>
             </span>
         </div>
-        <div class="d-inline-block">
+        <!-- <div class="d-inline-block">
             <b-dropdown id="langddm" class="ml-2" variant="light" size="sm" toggle-class="language-button">
                 <template slot="button-content">
                     <span class="name">{{$i18n.locale.toUpperCase()}}</span>
                 </template>
                 <b-dropdown-item v-for="(l,index) in localeOptions" :key="index" @click="changeLocale(l.id, l.direction)">{{l.name}}</b-dropdown-item>
             </b-dropdown>
-        </div>
+        </div> -->
     </div>
     <router-link class="navbar-logo" tag="a" to="/app">
+        <span style="font-weight:700;font-size:18px; maergin-top:5px">BUCICS</span>
         <span class="logo d-none d-xs-block"></span>
         <span class="logo-mobile d-block d-xs-none"></span>
     </router-link>
 
     <div class="navbar-right">
-        <div class="d-none d-md-inline-block align-middle mr-3">
+        <!-- <div class="d-none d-md-inline-block align-middle mr-3">
             <switches id="tool-mode-switch" v-model="isDarkActive" theme="custom" class="vue-switcher-small" color="primary" />
             <b-tooltip target="tool-mode-switch" placement="left" title="Dark Mode"></b-tooltip>
-        </div>
+        </div> -->
         <div class="header-icons d-inline-block align-middle">
             <div class="position-relative d-none d-sm-inline-block">
-                <b-dropdown variant="empty" size="sm" right toggle-class="header-icon" menu-class="position-absolute mt-3 iconMenuDropdown" no-caret>
+                <!-- <b-dropdown variant="empty" size="sm" right toggle-class="header-icon" menu-class="position-absolute mt-3 iconMenuDropdown" no-caret>
                     <template slot="button-content">
                         <i class="simple-icon-grid" />
                     </template>
@@ -64,7 +65,7 @@
                             {{$t('menu.todo')}}
                         </router-link>
                     </div>
-                </b-dropdown>
+                </b-dropdown> -->
             </div>
 
             <div class="position-relative d-inline-block">
@@ -88,13 +89,13 @@
                     </vue-perfect-scrollbar>
                 </b-dropdown>
             </div>
-            <div class="position-relative d-none d-sm-inline-block ">
+            <!-- <div class="position-relative d-none d-sm-inline-block ">
                 <div class="btn-group">
                     <b-button variant="empty" class="header-icon btn-sm" @click="toggleFullScreen">
                         <i :class="{'d-inline-block':true,'simple-icon-size-actual':fullScreen,'simple-icon-size-fullscreen':!fullScreen }" />
                     </b-button>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="user d-inline-block">
             <b-dropdown class="dropdown-menu-right" right variant="empty" toggle-class="p-0" menu-class="mt-3" no-caret>

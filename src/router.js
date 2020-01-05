@@ -12,19 +12,27 @@ const routes = [
     beforeEnter: AuthRequired,
     children: [
       {
-        path: 'app/dashboards',
-        component: () => import(/* webpackChunkName: "dashboards" */ './views/app/dashboards'),
-        redirect: '/app/dashboards/default',
-        children: [
-          { path: 'default', component: () => import(/* webpackChunkName: "dashboards" */ './views/app/dashboards/Default') },
-          { path: 'analytics', component: () => import(/* webpackChunkName: "dashboards" */ './views/app/dashboards/Analytics') },
-          { path: 'ecommerce', component: () => import(/* webpackChunkName: "dashboards" */ './views/app/dashboards/Ecommerce') },
-          { path: 'content', component: () => import(/* webpackChunkName: "dashboards" */ './views/app/dashboards/Content') }
-        ]
+        path: 'app/dashboard/content',
+        component: () => import(/* webpackChunkName: "dashboards" */ './views/app/dashboards/Content'),
+        // redirect: '/app/dashboard/content',
+        // children: [
+        //   { path: 'default', component: () => import(/* webpackChunkName: "dashboards" */ './views/app/dashboards/Default') },
+        //   { path: 'analytics', component: () => import(/* webpackChunkName: "dashboards" */ './views/app/dashboards/Analytics') },
+        //   { path: 'ecommerce', component: () => import(/* webpackChunkName: "dashboards" */ './views/app/dashboards/Ecommerce') },
+        //   { path: 'content', component: () => import(/* webpackChunkName: "dashboards" */ './views/app/dashboards/Content') }
+        // ]
       },
       {
         path: 'app/users/user-profile/:id',
         component: () => import(/* webpackChunkName: "user-profile" */ './views/app/users/UserProfile'), props: true
+      },
+      {
+        path: 'app/members/member-list',
+        component: () => import(/* webpackChunkName : "members" */ './views/app/members/MemberList'), props: true,
+        // redirect: '/app/members/member-list',
+        // children: [
+        //   { path: 'member-list', component: () => import(/* webpackChunkName: "members" */ './views/app/members/MemberList') }
+        // ]
       },
       {
         path: 'app/settings',
@@ -58,7 +66,7 @@ const routes = [
             children: [
               { path: 'user-list', component: () => import(/* webpackChunkName: "users" */ './views/app/settings/users/UserList') }
             ]
-          }
+          },
         ]
       },
       {

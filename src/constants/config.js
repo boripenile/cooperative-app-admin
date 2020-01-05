@@ -27,7 +27,7 @@ export const firebaseConfig = {
 }
 
 export const apiUrl = 'https://api.coloredstrategies.com'
-export const apiBaseUrl = 'http://localhost:8082/v1'
+export const apiBaseUrl = 'http://66.228.48.231:8092/v1'
 
 export const currentUser = {
   id: 1,

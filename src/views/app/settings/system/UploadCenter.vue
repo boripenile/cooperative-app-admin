@@ -125,7 +125,7 @@ export default {
       },
       users: [],
       usersUploadOptions: {
-        url: 'http://localhost:8082/v1/users/process/userfile',
+        url: apiBaseUrl + '/users/process/userfile',
         thumbnailHeight: 160,
         maxFilesize: 2,
         previewTemplate: this.dropzoneTemplate(),
