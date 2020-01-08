@@ -5,11 +5,17 @@
             <router-link :to="`?p=${data.id}`" class="w-40 w-sm-100">
                 <p class="mb-0 text-muted text-small w-15 w-sm-100">{{data.membershipCode}}</p>
                 <p class="list-item-heading mb-0 truncate">{{data.firstName}} {{data.lastName}}</p>
+                <p class="list-item-heading mb-0 truncate">{{data.referenceNumber}}</p>
             </router-link>
             <p class="mb-0 text-muted text-small w-15 w-sm-100">{{data.emailAddress}}</p>
+            <p class="mb-0 text-muted text-small w-15 w-sm-100">{{data.entryType}}</p>
+            <p class="mb-0 text-muted text-small w-15 w-sm-100">{{data.paymentAmount}}</p>
+            <p class="mb-0 text-muted text-small w-15 w-sm-100">{{data.performedBy.membershipCode}}</p>
             <p class="mb-0 text-muted text-small w-15 w-sm-100">{{data.phoneNumber}}</p>
             <p class="mb-0 text-muted text-small w-15 w-sm-100">{{data.clearedBalance}}</p>
             <p class="mb-0 text-muted text-small w-15 w-sm-100">{{data.createdAt }}</p>
+            <p class="mb-0 text-muted text-small w-15 w-sm-100">{{data.transactionType }}</p>
+            <p class="mb-0 text-muted text-small w-15 w-sm-100">{{data.transactionStatus }}</p>
             <div class="w-15 w-sm-100" v-if="data.phoneVerified === true || data.phoneVerified === false">
                 <b-badge pill :variant="data.statusColor">Verified: {{ data.phoneVerified }}</b-badge>
             </div>

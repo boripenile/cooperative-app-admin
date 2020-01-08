@@ -36,7 +36,7 @@ const data = [
         id: "transactions",
         icon: "iconsminds-coins",
         label: "menu.transactions",
-        to: "/app/members/transaction-list",
+        to: "/app/transactions/transactions-list",
     },
     {
         id: "contributions",

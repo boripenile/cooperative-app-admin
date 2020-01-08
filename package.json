@@ -1,7 +1,7 @@
 {
-  "name": "piaf-vue",
+  "name": "bucics-cooperative-app",
   "version": "4.0.0",
-  "description": "Piaf - Vue 2 Bootstrap 4 Admin Dashboard Template",
+  "description": "BUCICS - Cooperative Application",
   "author": "Colored Strategies <support@coloredstrategies.com>",
   "private": true,
   "scripts": {

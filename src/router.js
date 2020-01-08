@@ -8,7 +8,7 @@ const routes = [
   {
     path: '/',
     component: () => import(/* webpackChunkName: "app" */ './views/app'),
-    redirect: '/app/dashboards',
+    redirect: '/app/dashboard/content',
     beforeEnter: AuthRequired,
     children: [
       {
@@ -29,6 +29,14 @@ const routes = [
       {
         path: 'app/members/member-list',
         component: () => import(/* webpackChunkName : "members" */ './views/app/members/MemberList'), props: true,
+        // redirect: '/app/members/member-list',
+        // children: [
+        //   { path: 'member-list', component: () => import(/* webpackChunkName: "members" */ './views/app/members/MemberList') }
+        // ]
+      },
+      {
+        path: 'app/transactions/transactions-list',
+        component: () => import(/* webpackChunkName : "members" */ './views/app/transactions/TransactionsList'), props: true,
         // redirect: '/app/members/member-list',
         // children: [
         //   { path: 'member-list', component: () => import(/* webpackChunkName: "members" */ './views/app/members/MemberList') }
