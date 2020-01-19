@@ -10,10 +10,14 @@
         <b-colxx xl="6" lg="12">
             <div class="icon-cards-row">
                 <glide-component :settings="glideIconsOption">
-                    <icon-card :title="$t('dashboards.pending-orders')" icon="iconsminds-clock" :value=14 />
-                    <icon-card :title="$t('dashboards.completed-orders')" icon="iconsminds-basket-coins" :value=32 />
+                    <icon-card title="Members" icon="iconsminds-male-female" :value=14 />
+                    <icon-card title="Investments" icon="iconsminds-statistic" :value=32 />
                     <icon-card :title="$t('dashboards.refund-requests')" icon="iconsminds-arrow-refresh" :value=74 />
                     <icon-card :title="$t('dashboards.new-comments')" icon="iconsminds-mail-read" :value=25 />
+                    <!-- <icon-card :title="$t('dashboards.members')" icon="iconsminds-clock" :value=14 />
+                    <icon-card :title="$t('dashboards.investments')" icon="iconsminds-basket-coins" :value=32 />
+                    <icon-card :title="$t('dashboards.refund-requests')" icon="iconsminds-arrow-refresh" :value=74 />
+                    <icon-card :title="$t('dashboards.new-comments')" icon="iconsminds-mail-read" :value=25 /> -->
                 </glide-component>
             </div>
             <!-- <b-row>
