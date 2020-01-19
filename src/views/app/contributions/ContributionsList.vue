@@ -3,10 +3,10 @@
     <b-colxx class="disable-text-selection">
         <b-row>
             <b-colxx xxs="12">
-                <h1>{{ $t('menu.member-list') }}</h1>
+                <h1>{{ $t('menu.contributions-list') }}</h1>
                 <div class="top-right-button-container">
-                    <!-- <b-button v-b-modal.modalright variant="primary" size="lg" class="top-right-button">{{ $t('pages.add-new') }}</b-button>
-                    <b-button-group>
+                    <!-- <b-button v-b-modal.modalright variant="primary" size="lg" class="top-right-button">{{ $t('pages.add-new') }}</b-button> -->
+                    <!-- <b-button-group>
                         <b-dropdown split right @click="selectAll(true)" class="check-button" variant="primary">
                             <label class="custom-control custom-checkbox pl-4 mb-0 d-inline-block" slot="button-content">
                                 <input class="custom-control-input" type="checkbox" :checked="isSelectedAll" v-shortkey="{select: ['ctrl','a'], undo: ['ctrl','d']}" @shortkey="keymap">
@@ -92,7 +92,7 @@
             </b-row>
             <b-row v-else-if="displayMode==='list'" key="list">
                 <b-colxx xxs="12" class="mb-3" v-for="(item,index) in items" :key="index" :id="item.id">
-                    <data-list-item :key="item.id" :data="item" :selected-items="selectedItems" @toggle-item="toggleItem" v-contextmenu:contextmenu />
+                    <contribution-list-item :key="item.id" :data="item" :selected-items="selectedItems" @toggle-item="toggleItem" v-contextmenu:contextmenu />
                 </b-colxx>
             </b-row>
             <b-row v-if="lastPage>1">
@@ -147,7 +147,7 @@ import axios from 'axios'
 
 import ImageListItem from '../../../components/Listing/ImageListItem'
 import ThumbListItem from '../../../components/Listing/ThumbListItem'
-import DataListItem from '../../../components/Listing/MemberListItem'
+import ContributionListItem from '../../../components/Listing/ContributionListItem'
 import {
     apiUrl
 } from '../../../constants/config'
@@ -163,29 +163,29 @@ export default {
         'v-select': vSelect,
         'image-list-item': ImageListItem,
         'thumb-list-item': ThumbListItem,
-        'data-list-item': DataListItem
+        'contribution-list-item': ContributionListItem
     },
     data() {
         return {
             isLoad: false,
             apiBase: apiUrl + '/cakes/fordatatable',
-            apiBaseUrl: apiBaseUrl + '/members',
+            apiBaseUrl: apiBaseUrl + '/contributions',
             displayMode: 'list',
             sort: {
-                column: 'firstName',
-                label: 'Name'
+                column: 'year',
+                label: 'Year'
             },
             sortOptions: [{
-                    column: 'firstName',
-                    label: 'Name'
+                    column: 'year',
+                    label: 'Year'
                 },
                 {
-                    column: 'approvedMembership',
-                    label: 'Approval Status'
+                    column: 'contributionStatus',
+                    label: 'Contribution status'
                 },
                 {
-                    column: 'canInvest',
-                    label: 'Can Investment'
+                    column: 'amountContributed',
+                    label: 'Amount Contributed'
                 }
             ],
             page: 1,

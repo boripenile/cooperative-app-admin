@@ -16,7 +16,7 @@
                     <icon-card :title="$t('dashboards.new-comments')" icon="iconsminds-mail-read" :value=25 />
                 </glide-component>
             </div>
-            <b-row>
+            <!-- <b-row>
                 <b-colxx md="12">
                     <b-card class="mb-4 dashboard-quick-post" :title="$t('dashboards.quick-post')">
                         <b-refresh-button @click="refreshButtonClick" />
@@ -34,18 +34,17 @@
                         </b-form>
                     </b-card>
                 </b-colxx>
-            </b-row>
+            </b-row> -->
         </b-colxx>
 
         <b-colxx lg="12" xl="6">
-            <b-card :title="$t('dashboards.top-viewed-posts')">
-                <vuetable ref="vuetable" :api-url="bestsellers.apiUrl" :fields="bestsellers.fields" :per-page="6" pagination-path="" @vuetable:pagination-data="onPaginationData"></vuetable>
-                <vuetable-pagination-bootstrap ref="pagination" @vuetable-pagination:change-page="onChangePage" />
-            </b-card>
+            <!-- <b-colxx lg="4" class="mb-4"> -->
+            <gradient-with-radial-progress-card icon="iconsminds-bell" :title="`8 ${$t('dashboards.alerts')}`" :detail="$t('dashboards.waiting-for-notice')" :percent="8*100/10" progressText="8/10" />
+        <!-- </b-colxx> -->
         </b-colxx>
     </b-row>
 
-    <b-row>
+    <!-- <b-row>
         <b-colxx lg="4" md="6" class="mb-4">
             <b-card :title="$t('dashboards.cakes')" class="dashboard-link-list">
                 <two-column-list :data="cakes" />
@@ -59,7 +58,7 @@
                 </vue-perfect-scrollbar>
             </b-card>
         </b-colxx>
-    </b-row>
+    </b-row> -->
 
     <b-row>
         <b-colxx sm="12" md="6" class="mb-4">
@@ -108,7 +107,7 @@
         <b-colxx lg="4" class="mb-4">
             <gradient-with-radial-progress-card icon="iconsminds-male" :title="`4 ${$t('dashboards.users')}`" :detail="$t('dashboards.on-approval-process')" :percent="4*100/6" progressText="4/6" />
         </b-colxx>
-        <b-colxx lg="4" class="mb-4">
+         <b-colxx lg="4" class="mb-4">
             <gradient-with-radial-progress-card icon="iconsminds-bell" :title="`8 ${$t('dashboards.alerts')}`" :detail="$t('dashboards.waiting-for-notice')" :percent="8*100/10" progressText="8/10" />
         </b-colxx>
     </b-row>

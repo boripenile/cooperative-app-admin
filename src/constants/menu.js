@@ -42,13 +42,13 @@ const data = [
         id: "contributions",
         icon: "iconsminds-financial",
         label: "menu.contributions",
-        to: "/app/members/contributions-list",
+        to: "/app/contributions/contributions-list",
     },
     {
         id: "investments",
         icon: "iconsminds-line-chart-3",
         label: "menu.investments",
-        to: "/app/members/investments-list",
+        to: "/app/investments/investments-list",
     },
 {
     id: "settings",

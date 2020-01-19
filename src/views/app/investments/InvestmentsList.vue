@@ -3,10 +3,10 @@
     <b-colxx class="disable-text-selection">
         <b-row>
             <b-colxx xxs="12">
-                <h1>{{ $t('menu.member-list') }}</h1>
+                <h1>{{ $t('menu.contributions-list') }}</h1>
                 <div class="top-right-button-container">
-                    <!-- <b-button v-b-modal.modalright variant="primary" size="lg" class="top-right-button">{{ $t('pages.add-new') }}</b-button>
-                    <b-button-group>
+                    <b-button v-b-modal.modalright variant="primary" size="lg" class="top-right-button">Create New Investment</b-button>
+                    <!-- <b-button-group>
                         <b-dropdown split right @click="selectAll(true)" class="check-button" variant="primary">
                             <label class="custom-control custom-checkbox pl-4 mb-0 d-inline-block" slot="button-content">
                                 <input class="custom-control-input" type="checkbox" :checked="isSelectedAll" v-shortkey="{select: ['ctrl','a'], undo: ['ctrl','d']}" @shortkey="keymap">
@@ -24,15 +24,39 @@
                             <b-form-group :label="$t('pages.product-name')">
                                 <b-form-input v-model="newItem.title" />
                             </b-form-group>
-                            <b-form-group :label="$t('pages.category')">
-                                <v-select :options="categories" v-model="newItem.category" />
-                            </b-form-group>
                             <b-form-group :label="$t('pages.description')">
                                 <b-textarea v-model="newItem.description" :rows="2" :max-rows="2" />
                             </b-form-group>
-                            <b-form-group :label="$t('pages.status')">
-                                <b-form-radio-group stacked class="pt-2" :options="statuses" v-model="newItem.status" />
+                            <b-form-group label="Percentage from member">
+                                <b-form-input v-model="newItem.title" />
                             </b-form-group>
+                            <b-form-group label="Upload Image">
+                                <b-input-group :label="Image" :append="$t('input-groups.upload')" class="mb-3">
+                                    <b-form-file v-model="file" :placeholder="$t('input-groups.choose-file')"></b-form-file>
+                                </b-input-group>
+                            </b-form-group>
+                            <b-form-group label="Start date">
+                                <div class="form-group">
+                                    <v-date-picker
+                                        mode="single"
+                                        v-model="topLabelsOverLineForm.date"
+                                        :input-props="{ class:'form-control', placeholder: $t('form-components.date') }"></v-date-picker>
+                                </div>
+                            </b-form-group>
+                            <b-form-group label="Expected End date">
+                                <div class="form-group">
+                                    <v-date-picker
+                                        mode="single"
+                                        v-model="topLabelsOverLineForm.date"
+                                        :input-props="{ class:'form-control', placeholder: $t('form-components.date') }"></v-date-picker>
+                                </div>
+                            </b-form-group>
+                            <!-- <b-form-group :label="$t('pages.category')">
+                                <v-select :options="categories" v-model="newItem.category" />
+                            </b-form-group> -->
+                            <!-- <b-form-group :label="$t('pages.status')">
+                                <b-form-radio-group stacked class="pt-2" :options="statuses" v-model="newItem.status" />
+                            </b-form-group> -->
                         </b-form>
 
                         <template slot="modal-footer">
@@ -147,7 +171,7 @@ import axios from 'axios'
 
 import ImageListItem from '../../../components/Listing/ImageListItem'
 import ThumbListItem from '../../../components/Listing/ThumbListItem'
-import DataListItem from '../../../components/Listing/MemberListItem'
+import DataListItem from '../../../components/Listing/InvestmentListItem'
 import {
     apiUrl
 } from '../../../constants/config'
@@ -169,23 +193,23 @@ export default {
         return {
             isLoad: false,
             apiBase: apiUrl + '/cakes/fordatatable',
-            apiBaseUrl: apiBaseUrl + '/members',
+            apiBaseUrl: apiBaseUrl + '/investments',
             displayMode: 'list',
             sort: {
-                column: 'firstName',
-                label: 'Name'
+                column: 'year',
+                label: 'Year'
             },
             sortOptions: [{
-                    column: 'firstName',
-                    label: 'Name'
+                    column: 'year',
+                    label: 'Year'
                 },
                 {
-                    column: 'approvedMembership',
-                    label: 'Approval Status'
+                    column: 'contributionStatus',
+                    label: 'Contribution status'
                 },
                 {
-                    column: 'canInvest',
-                    label: 'Can Investment'
+                    column: 'amountContributed',
+                    label: 'Amount Contributed'
                 }
             ],
             page: 1,
@@ -225,7 +249,23 @@ export default {
                 category: '',
                 description: '',
                 status: ''
-            }
+            },
+            topLabelsOverLineForm: {
+                email: '',
+                password: '',
+                tags: [],
+                date: null,
+                select: '',
+                checked: false
+            },
+            topLabelsInInputForm: {
+                email: '',
+                password: '',
+                tags: [],
+                date: null,
+                select: '',
+                checked: false
+            },
         }
     },
     methods: {

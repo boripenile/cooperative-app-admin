@@ -27,16 +27,33 @@ const routes = [
         component: () => import(/* webpackChunkName: "user-profile" */ './views/app/users/UserProfile'), props: true
       },
       {
-        path: 'app/members/member-list',
+        path: 'app/members',
         component: () => import(/* webpackChunkName : "members" */ './views/app/members/MemberList'), props: true,
+        redirect: '/app/members/member-list',
+        children: [
+          { path: 'member-list', component: () => import(/* webpackChunkName: "member-page" */ './views/app/members/MemberDetail') },
+          { path: ':id', component: () => import(/* webpackChunkName: "member-page" */ './views/app/members/MemberDetail') }
+        ]
+      },
+      { 
+        path: 'app/transactions/transactions-list',
+        component: () => import(/* webpackChunkName : "members" */ './views/app/transactions/TransactionsList'), props: true,
+        // redirect: '/app/members/member-list',
+        // children: [
+        //   { path: 'member-list', component: () => import(/* webpackChunkName: "transactions" */ './views/app/members/MemberList') }
+        // ]
+      },
+      {
+        path: 'app/contributions/contributions-list',
+        component: () => import(/* webpackChunkName : "members" */ './views/app/contributions/ContributionsList'), props: true,
         // redirect: '/app/members/member-list',
         // children: [
         //   { path: 'member-list', component: () => import(/* webpackChunkName: "members" */ './views/app/members/MemberList') }
         // ]
       },
       {
-        path: 'app/transactions/transactions-list',
-        component: () => import(/* webpackChunkName : "members" */ './views/app/transactions/TransactionsList'), props: true,
+        path: 'app/investments/investments-list',
+        component: () => import(/* webpackChunkName : "members" */ './views/app/investments/InvestmentsList'), props: true,
         // redirect: '/app/members/member-list',
         // children: [
         //   { path: 'member-list', component: () => import(/* webpackChunkName: "members" */ './views/app/members/MemberList') }
